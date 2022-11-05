@@ -23,7 +23,7 @@ abstract class EntityBroker
         $statement->close();
         $this->database->disconnect();
     }
-    protected function getEntityById(int $id) : ?Entity
+    public function getEntityById(int $id) : ?Entity
     {
         $this->database->connect();
         $statement = $this->database->prepareStatement("SELECT * FROM {$this->getTableName()} where id = ?");
@@ -39,7 +39,7 @@ abstract class EntityBroker
         $this->database->disconnect();
         return $record;
     }
-    protected function getAllEntities(string $query, string $bindingString = null, array $bindingValues = []) : array
+    public function getAllEntities(string $bindingString = null, array $bindingValues = []) : array
     {
         $this->database->connect();
         $statement = $this->database->prepareStatement("SELECT * FROM ".$this->getTableName());

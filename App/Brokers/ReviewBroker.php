@@ -2,7 +2,6 @@
 require_once MODELS_PATH."Review.php";
 require_once MODELS_PATH."Entity.php";
 require_once BROKERS_PATH."EntityBroker.php";
-
 class ReviewBroker extends EntityBroker
 {
 	function getEntityFromRow(array $row): Entity {

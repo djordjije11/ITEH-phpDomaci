@@ -1,10 +1,11 @@
 <?php
+//include dirname(__DIR__).DIRECTORY_SEPARATOR."ITEH-phpDomaci".DIRECTORY_SEPARATOR.'Definitions'.DIRECTORY_SEPARATOR.'definitions.php';
+//include PUBLIC_PATH.'Views'.DIRECTORY_SEPARATOR.'Movies'.DIRECTORY_SEPARATOR.'index.php';
 
-$root = dirname(__DIR__).DIRECTORY_SEPARATOR."ITEH-phpDomaci".DIRECTORY_SEPARATOR;
-define('APP_PATH', $root.'App'.DIRECTORY_SEPARATOR);
-define('BROKERS_PATH', APP_PATH.DIRECTORY_SEPARATOR."Brokers".DIRECTORY_SEPARATOR);
-define('MODELS_PATH', APP_PATH.DIRECTORY_SEPARATOR."Models".DIRECTORY_SEPARATOR);
+include dirname(__DIR__) . "/ITEH-phpDomaci/Public/Views/Movies/index.php";
 
+
+/*
 require_once MODELS_PATH."Review.php";
 
 $review = new Review();
@@ -16,3 +17,4 @@ $review->setRating(10);
 $review->save();
 
 echo $review;
+*/
