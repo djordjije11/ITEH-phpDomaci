@@ -24,7 +24,7 @@ $movies = new MovieBroker();
     <a class="nav-link home text-info" aria-current="page" href="#">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link add new movie text-info" aria-current="page" href="\ITEH-phpDomaci\Public\Views\Movies\create.php">Add a new movie</a>
+    <a class="nav-link add new movie text-info" aria-current="page" href="\ITEH-phpDomaci\Public\Views\Movies\moviesadd.php">Add a new movie</a>
   </li>
 </ul>
 

@@ -12,9 +12,6 @@
   <li class="nav-item">
     <a class="nav-link home text-info" aria-current="page" href="./index.php">Home</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link add new movie text-info" aria-current="page" href="#">Add a new movie</a>
-  </li>
 </ul>
     <h1 class="mb-4">Add a movie</h1>
     <div class="alert alert-danger" style="display: none;" role="alert" id="movieSavedFalse"></div>
@@ -42,7 +39,10 @@
       <textarea placeholder="About movie..." class="form-control" id="description" rows="7"></textarea>
     </div>
   </div>
-  <button type="button" id="saveMovie" class="btn btn-info mb-4">Save a movie</button>
+  <button type="button" id="saveMovie" class="btn btn-info mb-4"
+    onclick="addMovie('#name','#year','#description','/ITEH-phpDomaci/Controllers/MovieCreateController.php','#movieSavedFalse','#movieSavedTrue')">
+      Save a movie
+  </button>
 </form> 
 </div>
 

@@ -6,7 +6,7 @@ $controller = new ReviewViewController();
 $movie = null;
 $reviews = [];
 try {
-    $movie = $controller->getMovieById();
+    $movie = $controller->getMovieById($_GET['id']);
     $reviews = $movie ? $controller->getReviewsForMovie($movie) : [];
 } catch (Exception $e) { }
 
@@ -20,9 +20,9 @@ try {
 
     <title>
         <?php if($movie) : ?>
-            <?= 'Home / ' . $movie ?>
+            <?= $movie ?>
         <?php else: ?>
-            Home / Error
+            Error
         <?php endif; ?>
     </title>
 
@@ -30,29 +30,23 @@ try {
 </head>
 
 <body>
-<main class="container my-5">
-    <nav aria-label="breadcrumb" class="mb-5">
-        <h3>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../Movies/index.php" class="link-primary" style="text-decoration: none">Home</a></li>
-                <?php if($movie) : ?>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      <?= $movie ?>
-                    </li>
-                <?php endif; ?>
-            </ol>
-        </h3>
-    </nav>
+<main class="container fluid">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link home text-info" aria-current="page" href="../Movies/index.php">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link add new movie text-info" aria-current="page" href="./reviewsadd.php?id=<?= $movie->getId() ?>">Add a new review</a>
+        </li>
+    </ul>
+    <h2>
+        <?= $movie ?>
+    </h2>
 
     <?php if($movie) : ?>
         <hr class="my-3" />
 
         <div class="mb-4">
-
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                <a href="./reviewsadd.php?id=<?= $movie->getId() ?>"
-                        class="btn btn-dark mb-4">Add a review</a>
-            </div>
 
             <h2 class="mb-4">Reviews</h2>
 

@@ -1,13 +1,4 @@
-window.addEventListener('DOMContentLoaded', function () {
-    const button = document.querySelector("#saveReview");
-    button.addEventListener('click', () => {
-        const rating = document.querySelector('#rating').value;
-        const reviewText = document.querySelector('#reviewText').value;
-         
-        const exceptionAlertId = "#reviewSavedFalse";
-        const successAlertId = "#reviewSavedTrue";
-        const route = "/ITEH-phpDomaci/Controllers/ReviewCreateController.php";
-        const query = "rating="+rating+"&reviewText="+reviewText;
-        create(route, query, successAlertId, exceptionAlertId);
-    });
-});
+const addReview = (movieId, rating, reviewText, route, successAlertId, exceptionAlertId) => {
+    const query = "rating="+document.querySelector(rating).value+"&reviewText="+document.querySelector(reviewText).value+"&movieId="+movieId;
+    create(route, query, successAlertId, exceptionAlertId);
+};

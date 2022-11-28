@@ -1,6 +1,12 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . "/ITEH-phpDomaci/Controllers/ReviewViewController.php";
 
+$controller = new ReviewViewController();
+$movie = null;
 $movieId = $_GET['id'];
+try {
+    $movie = $controller->getMovieById($movieId);
+} catch (Exception $e) { }
 ?>
 
 <!doctype html>
@@ -18,10 +24,11 @@ $movieId = $_GET['id'];
     <a class="nav-link home text-info" aria-current="page" href="../Movies/index.php">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link add new review text-info" aria-current="page" href="#">Add a new review</a>
+    <a class="nav-link add new review text-info" aria-current="page" href="./reviewsview.php?id=<?= $movieId ?>"><?= $movie ?> - Reviews</a>
   </li>
 </ul>
-    <h1 class="mb-4">Add a review</h1>
+    <h2 class="mb-4"><?= $movie ?></h2>
+    <h3 class="mb-4">Add a review</h3>
     <div class="alert alert-danger" style="display: none;" role="alert" id="reviewSavedFalse"></div>
     <div class="alert alert-success" style="display: none;" role="alert" id="reviewSavedTrue">
         Success!
@@ -41,7 +48,10 @@ $movieId = $_GET['id'];
       <textarea placeholder="Your impressions..." class="form-control" id="reviewText" rows="7"></textarea>
     </div>
   </div>
-  <button type="button" id="saveReview" class="btn btn-info mb-4">Save a review</button>
+  <button type="button" id="saveReview" class="btn btn-info mb-4" 
+  onclick="addReview(<?= $movieId ?>, '#rating', '#reviewText', '/ITEH-phpDomaci/Controllers/ReviewCreateController.php', '#reviewSavedTrue', '#reviewSavedFalse')">
+  Save a review
+</button>
 </form> 
 </div>
 
