@@ -1,6 +1,6 @@
 <?php
-require_once MODELS_PATH."Entity.php";
-require_once BROKERS_PATH."MovieBroker.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Entity.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Brokers/MovieBroker.php";
 class Movie extends Entity
 {
     private string $name;

@@ -1,15 +1,26 @@
 <?php
-require_once MODELS_PATH."Review.php";
-require_once MODELS_PATH."Entity.php";
-require_once BROKERS_PATH."EntityBroker.php";
+
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Review.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Entity.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Brokers/EntityBroker.php";
 class ReviewBroker extends EntityBroker
 {
+    public function getReviewsForMovie(Movie $movie) : array
+    {
+        return $this->getAll(
+            "SELECT * FROM reviews
+         where movie_id = ?", "i", [$movie->getId()]
+        );
+    }
+    public function getAllEntities() : array{
+        return $this->getAll("SELECT * FROM {$this->getTableName()}");
+    }
 	function getEntityFromRow(array $row): Entity {
         $record = new Review();
         $record->setId($row['id']);
         $record->setText($row['text']);
         $record->setMovieId($row['movie_id']);
-        $record->setRating($row['rating']);
+        $record->setRating($row['Rating']);
         return $record;
 	}
 	protected function getTableName(): string

@@ -3,9 +3,6 @@ include $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/Definitions/definitions.php";
 require_once BROKERS_PATH."EntityBroker.php";
 require_once BROKERS_PATH."MovieBroker.php";
 
-// require_once $_SERVER["DOCUMENT_ROOT"]."/ITEH-phpDomaci/App/Brokers/EntityBroker.php";
-// require_once $_SERVER["DOCUMENT_ROOT"]."/ITEH-phpDomaci/App/Brokers/MovieBroker.php";
-
 $movies = new MovieBroker();
 ?>
 
@@ -57,14 +54,13 @@ $movies = new MovieBroker();
                         <td><?= $movie->getYear(); ?></td>
                         <td style="font-size: small;"><?= $movie->getDescription(); ?></td>
                         <td>
-                            <button type="button" class="btn btn-outline-info" href="/public/views/movies/edit.php?id=<?= $movie->getId(); ?>">
-                            View reviews
-                            </button>
+                            <a href="/ITEH-phpDomaci/Public/Views/Reviews/reviewsview.php?id=<?= $movie->getId(); ?>">
+                                <button class="btn btn-outline-secondary">View reviews</button>
+                            </a> 
                         </td>
                         <td>
-                        <button type="button" onclick="deleteRow(this, <?= $movie->getId(); ?>,
-                                        '/ITEH-phpDomaci/Controllers/MovieDeleteController.php',
-                                        '#movieDeleteFalse', '#movieDeleteTrue')" class="btn btn-outline-secondary">
+                        <button type="button" class="btn btn-outline-secondary" onclick="deleteRow(this, <?= $movie->getId(); ?>,
+                                        '/ITEH-phpDomaci/Controllers/MovieDeleteController.php', '#movieDeleteFalse', '#movieDeleteTrue')">
                                 Delete movie
                             </button>
                         </td>

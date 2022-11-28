@@ -27,11 +27,7 @@ const create = (route, query, successAlertId, exceptionAlertId) => {
         }
     }
 
-    request.open(
-            "POST",
-            route,
-            true
-        );
+    request.open("POST", route, true);
     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     request.send(query);
 };

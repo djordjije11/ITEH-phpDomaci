@@ -1,6 +1,6 @@
 <?php
-require_once MODELS_PATH."Entity.php";
-require_once APP_PATH."DatabaseConnector".DIRECTORY_SEPARATOR."dbConnector.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Entity.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/DatabaseConnector/dbConnector.php";
 abstract class EntityBroker
 {
     protected DbConnector $database;
@@ -39,12 +39,12 @@ abstract class EntityBroker
         $this->database->disconnect();
         return $record;
     }
-    public function getAllEntities(string $bindingString = null, array $bindingValues = []) : array
+    public function getAll($query , string $bindString = null, array $bindValues = []) : array
     {
         $this->database->connect();
-        $statement = $this->database->prepareStatement("SELECT * FROM ".$this->getTableName());
-        if($bindingString && count($bindingValues) === strlen($bindingString)) {
-            $statement->bind_param($bindingString, ...$bindingValues);
+        $statement = $this->database->prepareStatement($query);
+        if($bindString && count($bindValues) === strlen($bindString)) {
+            $statement->bind_param($bindString, ...$bindValues);
         }
         $records = [];
         if($statement->execute()) {

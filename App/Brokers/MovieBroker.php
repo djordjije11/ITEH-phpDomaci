@@ -1,7 +1,7 @@
 <?php
-require_once MODELS_PATH."Movie.php";
-require_once MODELS_PATH."Entity.php";
-require_once BROKERS_PATH."EntityBroker.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Movie.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Entity.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Brokers/EntityBroker.php";
 
 class MovieBroker extends EntityBroker
 {
@@ -39,5 +39,9 @@ class MovieBroker extends EntityBroker
     }
     protected function getTableName() : string{
         return 'movies';
+    }
+    public function getAllEntities() : array
+    {
+        return $this->getAll("SELECT * FROM {$this->getTableName()}");
     }
 }

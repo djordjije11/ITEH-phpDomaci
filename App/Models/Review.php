@@ -1,6 +1,6 @@
 <?php
-require MODELS_PATH."Entity.php";
-require BROKERS_PATH."ReviewBroker.php"; 
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Models/Entity.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/ITEH-phpDomaci/App/Brokers/ReviewBroker.php"; 
 class Review extends Entity
 {
     private string $text;
