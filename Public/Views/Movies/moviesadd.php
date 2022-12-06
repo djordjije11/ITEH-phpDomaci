@@ -40,7 +40,7 @@
     </div>
   </div>
   <button type="button" id="saveMovie" class="btn btn-info mb-4"
-    onclick="addMovie('#name','#year','#description','/ITEH-phpDomaci/Controllers/MovieCreateController.php','#movieSavedFalse','#movieSavedTrue')">
+    onclick="addMovie('#name','#year','#description','/ITEH-phpDomaci/Controllers/MovieCreateController.php', '#movieSavedTrue', '#movieSavedFalse')">
       Save a movie
   </button>
 </form> 

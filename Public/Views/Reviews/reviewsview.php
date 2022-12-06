@@ -52,7 +52,7 @@ try {
 
             <div class="alert alert-danger" style="display: none;" role="alert" id="reviewDeleteFalse"></div>
             <div class="alert alert-success" style="display: none;" role="alert" id="reviewDeleteTrue">
-                ✨ Success!
+                Success!
             </div>
 
             <table class="table">
