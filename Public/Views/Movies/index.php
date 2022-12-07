@@ -29,11 +29,10 @@ $movies = new MovieBroker();
 </ul>
 
 <div class="mb-4">
-    <!-- MENJAJ OVOOOOOOOOOOOOOOOOO -->
         <h1 class="mb-3">List of movies</h1>
         <div class="alert alert-danger" style="display: none;" role="alert" id="movieDeleteFalse"></div>
         <div class="alert alert-success" style="display: none;" role="alert" id="movieDeleteTrue">
-            ✨ Success!
+            Success!
         </div>
         <table class="table">
             <thead>
